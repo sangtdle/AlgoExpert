@@ -36,19 +36,16 @@ namespace AlgoExpert.Questions.RecursionQuestions
 
         public static int GetNthFib3(int n)
         {
-            if (n == 1) return 0;
-            if (n == 2) return 1;
-
-            int[] nums = { 0, 1 };
+            int[] lastTwo = { 0, 1 };
             int i = 3;
             while (i <= n)
             {
-                int newValue = nums[0] + nums[1];
-                nums[0] = nums[1];
-                nums[1] = newValue;
+                int newValue = lastTwo[0] + lastTwo[1];
+                lastTwo[0] = lastTwo[1];
+                lastTwo[1] = newValue;
                 i++;
             }
-            return nums[1];
+            return n > 1 ? lastTwo[1]: lastTwo[0];
         }
     }
 }
