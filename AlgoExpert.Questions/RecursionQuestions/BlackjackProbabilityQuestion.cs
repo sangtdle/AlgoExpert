@@ -8,37 +8,34 @@ namespace AlgoExpert.Questions.RecursionQuestions
 {
     public class BlackjackProbabilityQuestion
     {
-        // O (t - s) time | O (t - s) space where t is the target and s is the starting hand
         public static double BlackjackProbability1(int target, int startingHand)
         {
             Dictionary<int, double> memo = new Dictionary<int, double>();
-
-            return Math.Round(BlackjackProbability1Helper(startingHand, target, memo) * 1000f)/ 1000f;
+            return Math.Round(calculateProbability1(target, startingHand, memo) * 1000f) / 1000f;
         }
 
-        private static double BlackjackProbability1Helper(int currentHand, int target, Dictionary<int, double> memo)
+        private static double calculateProbability1(int target, int startingHand, Dictionary<int, double> memo)
         {
-            if (memo.ContainsKey(currentHand))
+            if (memo.ContainsKey(startingHand))
             {
-                return memo[currentHand];
+                return memo[startingHand];
             }
-
-            if (currentHand > target)
-            {
-                return 1;
-            }
-            if (currentHand >= target - 4)
+            if (startingHand >= target - 4 && startingHand <= target)
             {
                 return 0;
             }
-
-            double totalProbability = 0;
-            for (int drawnCard = 1; drawnCard <= 10; drawnCard++)
+            else if (startingHand > target)
             {
-                totalProbability += .1 * BlackjackProbability1Helper(currentHand + drawnCard, target, memo);
+                return 1;
             }
 
-            memo[currentHand] = totalProbability;
+            double totalProbability = 0;
+            for (int i = 1; i <= 10; i++)
+            {
+                totalProbability += .1 * calculateProbability1(target, startingHand + i, memo);
+            }
+
+            memo[startingHand] = totalProbability;
             return totalProbability;
         }
     }
