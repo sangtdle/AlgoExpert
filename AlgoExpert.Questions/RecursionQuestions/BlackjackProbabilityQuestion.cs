@@ -8,6 +8,7 @@ namespace AlgoExpert.Questions.RecursionQuestions
 {
     public class BlackjackProbabilityQuestion
     {
+        // O (t - s) time || O (t - s) space
         public static double BlackjackProbability1(int target, int startingHand)
         {
             Dictionary<int, double> memo = new Dictionary<int, double>();
