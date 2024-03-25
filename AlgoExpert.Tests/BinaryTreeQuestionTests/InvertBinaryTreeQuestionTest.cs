@@ -10,6 +10,7 @@ namespace AlgoExpert.Tests.BinaryTreeQuestionTests
 {
     public class InvertBinaryTreeQuestionTest
     {
+        [Fact]
         public void TestCase1()
         {
             TestBinaryTree tree = new TestBinaryTree(1);
@@ -19,7 +20,7 @@ namespace AlgoExpert.Tests.BinaryTreeQuestionTests
             invertedTree.insert(new int[] { 2, 3, 4, 5, 6, 7, 8, 9 }, 0);
             Assert.True(compareBT(tree, invertedTree));
         }
-
+        [Fact]
         public void TestCase2()
         {
             TestBinaryTree tree = new TestBinaryTree(1);
@@ -29,7 +30,7 @@ namespace AlgoExpert.Tests.BinaryTreeQuestionTests
             invertedTree.insert(new int[] { 2, 3, 4, 5, 6, 7, 8, 9 }, 0);
             Assert.True(compareBT(tree, invertedTree));
         }
-
+        [Fact]
         public void TestCase3()
         {
             TestBinaryTree tree = new TestBinaryTree(1);

@@ -10,6 +10,7 @@ namespace AlgoExpert.Tests.BinaryTreeQuestionTests
 {
     public class BinaryTreeDiameterQuestionTest
     {
+        [Fact]
         public void TestCase1()
         {
             var root = new BinaryTree(1);
