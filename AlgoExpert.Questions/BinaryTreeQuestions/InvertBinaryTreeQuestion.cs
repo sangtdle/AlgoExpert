@@ -62,6 +62,7 @@ namespace AlgoExpert.Questions.BinaryTreeQuestions
                 {
                     queue.Add(current.right);
                 }
+                index++;
             }
         }
 
